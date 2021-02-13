@@ -1,0 +1,39 @@
+﻿<table class="table table-bordered" style="text-align: center; width: 200px">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Active</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let u of users">
+			<td>{{u?.id}}</td>
+			<td>{{u?.name}}</td>
+			<td><input type="checkbox" [(ngModel)]="u.active" (change)="save(u)" /></td>
+		</tr>
+	</tbody>
+</table>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popuptotal" (click)="loadUsers()">
+	Total
+</button>
+
+<div class="modal fade" id="popuptotal" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modaltitle">Popup Header</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				Total: {{total}}
+				Active: {{active}}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
